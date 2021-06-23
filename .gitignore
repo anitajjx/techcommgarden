@@ -1,0 +1,27 @@
+_site/
+.sass-cache/
+.jekyll-metadata
+
+# ignore PDF
+_pdf/
+pdf/
+pdfconfigs/
+pdf*.sh
+
+.DS_Store
+.idea
+vendor/
+.bundle/
+_data/samplelist.yml
+
+# shell scripts
+createtag
+update.sh
+
+# tooltips
+tooltips.*
+_tooltips/
+
+# Docker
+docker-compose.yml
+Dockerfile
