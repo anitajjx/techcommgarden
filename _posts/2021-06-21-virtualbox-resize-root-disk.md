@@ -9,7 +9,7 @@ tags: [VirtualBox]
 
 ## Problem
 
-![Low Disk Space Message](/images/blog_imgs/msg_low_disks_pace.png "title-Low Disk Space on Filesystem root")
+{% include image.html file="blog_imgs/msg_low_disks_pace.png" caption="Low Disk Space message" %}
 
 ## Cause
 
@@ -38,11 +38,12 @@ It is always wise to back up the VM in case something goes wrong, so I created a
 3. Import the new VDI into VirtualBox
 
     3a. Start VirtualBox and create a new virtual machine
-   ![Create new vm](/images/blog_imgs/vm_create_new_vm.png)
+
+    {% include image.html file="blog_imgs/vm_create_new_vm.png" caption="Create new vm" %}
 
     3b. When asked for a hard disk image, select **Use an existing virtual hard disk file** and click on the small icon on the right:
 
-   ![Select vdi file](/images/blog_imgs/vm_select_vdi_file.png)
+    {% include image.html file="blog_imgs/vm_select_vdi_file.png" caption="Select vdi file" %}
 
     3c. On the opened window, click on **Add** and select the VDI file from step 1
 
@@ -54,7 +55,7 @@ It is always wise to back up the VM in case something goes wrong, so I created a
 
 1. Check the disk size
 
-   ![check disk space 1](/images/blog_imgs/vm_fdisk_before.png)
+   {% include image.html file="blog_imgs/vm_fdisk_before.png" caption="Check disk space before partition" %}
 
    The disk size has been changed from 12g to 20g, but the root directory (/dev/mapper/ol-root) size remains the same, this means we need to create new partion, create physical volumn, and extend logical volumn etc for the new virtaul disk.
 
@@ -109,6 +110,6 @@ It is always wise to back up the VM in case something goes wrong, so I created a
     6a. As Oracle Linux 8 is using **xfs** as default file system, so we need to install xfsprogs to resize the file system by running `yum install xfsprogs`
 
     6b. Then run `xfs_growfs /dev/mapper/ol-root`
-   ![resize file system](/images/blog_imgs/vm_resize_fs.png)
+      {% include image.html file="blog_imgs/vm_resize_fs.png" caption="Resize file system" %}
 
 {% include links.html %}

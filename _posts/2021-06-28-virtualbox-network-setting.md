@@ -16,11 +16,11 @@ Summary: Setup network for a newly installed virtual machine (VM), allowing the 
 - The VM can access Internet
 - 2-way communication between Host and VM
 
-## VirtualBox network mode overview
+## VirtualBox network modes overview
 
 Before network setup, it's helpful to know about the basic concepts for each network mode and the differences between them in VirtualBox. Please see the official document [here](https://www.virtualbox.org/manual/UserManual.html#networkingdetails)
 
-![network modes overview](/images/blog_imgs/VB_network_modes_overview.png)
+{% include image.html file="blog_imgs/VB_network_modes_overview.png" caption="Overview of network modes" %}
 
 ## Network setup
 
@@ -35,17 +35,16 @@ According to the above table, we can see that it's quite flexible to configure n
 
 1. On VirtualBox, select the VM -> Settings -> Network -> Adapter 1
 
-    ![bridged mode1](/images/blog_imgs/VB_network_modes_bridged.png)
+    {% include image.html file="blog_imgs/VB_network_modes_bridged.png" caption="Bridged mode config" %}
 
 2. Start the VM and check IP
 
-    ![bridged mode2](/images/blog_imgs/VB_network_modes_bridged2.png)
-
+    {% include image.html file="blog_imgs/VB_network_modes_bridged2.png" caption="Check IP in bridged mode" %}
     The VM gets an IP and can access the Internet.
 
 3. Check access between VM and Host
 
-    ![bridged mode3](/images/blog_imgs/VB_network_modes_bridged3.png)
+    {% include image.html file="blog_imgs/VB_network_modes_bridged3.png" caption="Check access in bridged mode" %}
 
     The VM cannot ping through the Host, and vice versa. I thought maybe something went wrong and got stuck, then I jumped to other tasks. Hours later, when I got back to the failure point and ran the same command, you know what, the Host and VM just magically can communicate with each other (see picture below). But I did nothing about the issue, why?
 
@@ -66,17 +65,17 @@ NAP mode allows VM to access Internet, while Host-only mode provides 2-way commu
 
 1. On VirtualBox, select the VM -> Settings -> Network -> Adapter 1
 
-    ![nat mode](/images/blog_imgs/VB_network_modes_nat.png)
+    {% include image.html file="blog_imgs/VB_network_modes_nat.png" caption="NAT mode" %}
 
 2. On VirtualBox, select the VM -> Settings -> Network -> Adapter 2
 
-    ![hostonly mode](/images/blog_imgs/VB_network_modes_hostonly.png)
+    {% include image.html file="blog_imgs/VB_network_modes_hostonly.png" caption="Host-only mode" %}
 
 3. Start the VM, then turn on “Ethernet (enp0s8) Connection Adapter”
 
     After turning on “Ethernet (enp0s8) Connection Adapter”, an IP is assigned to enp0s8.
 
-    ![turn on enp0s8](/images/blog_imgs/VB_network_turn_on_ethernet.png)
+    {% include image.html file="blog_imgs/VB_network_turn_on_ethernet.png" caption="Turn on enp0s8 adapter" %}
 
     {% include note.html content="When ping Host from VM, should use the fixed IP: 10.0.2.2" %}
 
